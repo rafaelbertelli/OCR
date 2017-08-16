@@ -27,27 +27,35 @@ var app = {
 };
 
 function lerTexto() {
-
-    navigator.camera.getPicture(cameraSuccessCallback, cameraErrorCallback, options)
+    navigator.camera.getPicture(cameraSuccessCallback, cameraErrorCallback, { 
+        quality: 100,
+        destinationType: Camera.DestinationType.FILE_URI
+    });
 
 debugger;
     
 }
 
-function cameraSuccessCallback(imageData) {
-   var image = document.getElementById('myImage');
-   image.src = "data:image/jpeg;base64," + imageData;
+function cameraSuccessCallback(imageURI) {
+    var image = document.getElementById('myImage');
+    image.src = imageURI;
 debugger;
-   Tesseract.recognise(imageData,successCallback,errorCallback);
+    Tesseract.recognise(imageURI,tesseractSuccessCallback,tesseractErrorCallback);
 }
 
-function successCallback (result) {
+function cameraErrorCallback(message) {
+    alert('Failed because: ' + message);
+}
+
+
+
+function tesseractSuccessCallback(result) {
 debugger;    
     console.log(result);
     alert(result);
 }
         
-function errorCallback (error) {
+function tesseractErrorCallback(error) {
 debugger;    
     console.log(error);
     alert(result);
