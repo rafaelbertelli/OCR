@@ -28,7 +28,7 @@ var app = {
 
 function lerTexto() {
 
-    camera.getPicture(cameraSuccessCallback, cameraErrorCallback, options)
+    navigator.camera.getPicture(cameraSuccessCallback, cameraErrorCallback, options)
 
 debugger;
     
