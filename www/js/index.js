@@ -44,7 +44,10 @@ var app = {
 };
 
 function lerTexto() {
-    Tesseract.recognise(imagePath,successCallback,errorCallback);
+
+    Tesseract.prototype.recognise = function (path, successCallback, errorCallback) {
+    exec(successCallback, errorCallback, "Tesseract", "recognise", [path]);
+};
 }
 
 function successCallback (result) {
