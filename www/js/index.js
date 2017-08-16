@@ -41,6 +41,14 @@ function cameraSuccessCallback(imageURI) {
 debugger;
     Tesseract.recognise(path,tesseractSuccessCallback,tesseractErrorCallback);
 
+<<<<<<< HEAD
+=======
+    Tesseract.recognize(path)
+    .then(function(result){
+       // console.log(result);
+        document.getElementById("textarea1").value = result.text; // assign results to a textbox
+    })
+>>>>>>> 4663d936e430078d504331b4ac8b60181cf60d00
 }
 
 function cameraErrorCallback(message) {
