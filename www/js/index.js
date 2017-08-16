@@ -44,7 +44,8 @@ debugger;
     Tesseract.recognize(path)
     .then(function(result){
        // console.log(result);
-    document.getElementById("textarea1").value = result.text; // assign results to a textbox
+        document.getElementById("textarea1").value = result.text; // assign results to a textbox
+    }
 }
 
 function cameraErrorCallback(message) {
