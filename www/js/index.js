@@ -37,8 +37,6 @@ debugger;
 }
 
 function cameraSuccessCallback(imageURI) {
-    var image = document.getElementById('myImage');
-    image.src = imageURI;
     path = imageURI
 debugger;
     Tesseract.recognise(path,tesseractSuccessCallback,tesseractErrorCallback);
